@@ -67,7 +67,7 @@ function calBisection(initialEquation, initialXL, initialXR, initialError) {
 
 
 
-class App extends React.Component {
+class Bisection extends React.Component {
   state = {
     Equation:'',
     XL: '',
@@ -144,6 +144,6 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Bisection;
 
 
