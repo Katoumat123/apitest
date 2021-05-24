@@ -82,16 +82,13 @@ class App extends React.Component {
   async getapi(){
     let tempData = null
     await axios.get("https://my-json-server.typicode.com/Katoumat123/testkatoumat/root").then(res => {tempData = res.data})
-    console.log(tempData)
-    this.setState({apiData:tempData})
+    this.setState({Equation: tempData[0]["equation"],XL: tempData[0]["xl"],XR: tempData[0]["xr"],ERROR: tempData[0]["error"]});
     
   }
   
-  // getdata = (e) => {
-  //   this.gatapi();
-  // }
-
-  
+  get_api = e =>{
+    this.getapi()
+  }
 
   getEquation = e => {
     this.setState({
@@ -135,7 +132,7 @@ class App extends React.Component {
           <span>ERROR:<input  placeholder="0.000001" onChange={this.getERR} value = {this.state.ERROR}></input></span>
         </div>
         <span><button onClick={this.show_value}>คำนวณ</button></span>
-        <span><button onClick={this.getapi}>ตัวอย่าง</button></span>
+        <span><button onClick={this.get_api}>ตัวอย่าง</button></span>
         <div>
           {this.state.result}
         </div>
